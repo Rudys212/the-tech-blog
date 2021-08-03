@@ -34,4 +34,4 @@ Post.hasMany(Comment, {
   hooks: true,
 });
 
-module.exports = { User, Project };
+module.exports = { User, Comment, Post };
