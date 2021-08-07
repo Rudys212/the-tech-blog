@@ -1,67 +1,59 @@
 const router = require('express').Router();
-const { User } = require('../../models');
-const { update } = require('../../models/User');
-with auth
+const { User, Post, Comment } = require('../../models');
+const withAuth = require('../utils/auth');
 
-create
-update
-delete
-
-
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
+    const newPost = await Post.create({
+      ...req.body,
+      user_id: req.session.user_id,
     });
+
+    res.status(200).json(newPost);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.post('/login', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
+    const postData = await Post.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
     });
+    if (!postData) {
+      res.status(404).json({
+        message: 'No post found with this ID',
+      });
+      return;
+    }
 
+    res.status(200).json(projectData);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.update({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
     });
-  } else {
-    res.status(404).end();
+    if (!postData) {
+      res.status(404).json({
+        message: 'No post found with this ID',
+      });
+      return;
+    }
+
+    res.status(200).json(projectData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
