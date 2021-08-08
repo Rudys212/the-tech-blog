@@ -1,17 +1,37 @@
 [
   {
-    "name": "Music Near Me",
-    "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    "needed_funding": 5000
+    "user_id":1,
+    "post_id": 1,
+    "comment_body": "That's awesome!"
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "needed_funding": 10000
+    "user_id":2,
+    "post_id": 2,
+    "comment_body": "Great work!"
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "needed_funding": 800
+    "user_id":3,
+    "post_id": 3,
+    "comment_body": "Your work looks amazing!"
+  },
+  {
+    "user_id":5,
+    "post_id":6,
+    "comment_body": "You're doing great. Keep up the great work."
+  },
+  {
+    "user_id":7,
+    "post_id":5,
+    "comment_body": "So cool! Can't wait to read more."
+  },
+  {
+    "user_id":4,
+    "post_id":7,
+    "comment_body": "Well done, your work looks great. It's a great article."
+  },
+  {
+    "user_id":6,
+    "post_id":4,
+    "comment_body": "Very helpful and informative! Thanks, for the post"
   }
 ]
