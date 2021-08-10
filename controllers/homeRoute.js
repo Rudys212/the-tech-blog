@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../models');
 
 router.get('/', async (req, res) => {
-  console.log('checking');
   try {
     const postData = await Post.findAll({
       include: [User],
