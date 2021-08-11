@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../../models/User');
+const { Post, Comment, User } = require('../../models/');
 
 router.post('/', async (req, res) => {
   try {
@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  console.log('inside login');
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -53,7 +54,8 @@ router.post('/login', async (req, res) => {
       res.json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 

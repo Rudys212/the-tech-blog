@@ -20,8 +20,8 @@ header,
 
 .hero-pic {
   background-image: linear-gradient(
-      rgba(11, 82, 92, 0.596),
-      rgba(26, 160, 250, 0.849)
+      rgba(44, 32, 99, 0.596),
+      rgba(23, 38, 172, 0.849)
     ),
     url(../assets/images/backgroundPic.jpg);
   background-size: cover;
@@ -38,4 +38,16 @@ header,
 .navBtns {
   top: 38px;
   position: relative;
+}
+
+div #imageCardSec {
+  border: none;
+}
+
+#loginFormCard {
+  border: none;
+  align-content: center;
+  position: relative;
+  bottom: auto;
+  text-align: center;
 }
