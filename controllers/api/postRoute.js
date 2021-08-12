@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
         plain: true,
       })
     );
-    res.render('post', {
+    console.log(posts);
+    res.render('postCards', {
       posts,
     });
   } catch (err) {
@@ -23,12 +24,10 @@ router.get('/', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
+    console.log(req.body, 'checking body');
     const newPost = await Post.create({
       ...req.body,
       user_id: req.session.user_id,
-      title: req.body.title,
-      post_body: req.body.post_body,
-      date_created: req.body.date_created,
     });
 
     res.status(200).json(newPost);
