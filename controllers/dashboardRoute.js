@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
+const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 // needs ID
@@ -16,13 +17,14 @@ router.get('/', async (req, res) => {
     );
     res.render('dashboard', {
       posts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
     if (!postData) {
@@ -30,7 +32,7 @@ router.get('/post/:id', async (req, res) => {
       return;
     }
     const post = postData.get({ plain: true });
-    res.render('post', post);
+    res.render('dashboard', { post, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -44,7 +46,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       return;
     }
     const post = postData.get({ plain: true });
-    res.render('post', post);
+    res.render('dashboard', { post, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }

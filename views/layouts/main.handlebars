@@ -6,57 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Tech Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-   <div class="hero-pic">
-  <header id="bkgrdImg">  
-      <nav class="nav">
+  <div class="hero-pic">
+    <header id="bkgrdImg">
+      <nav class="navContainer">
         <ul class="nav nav-pills nav-fill">
           <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
           <a class="navbar-brand" href="/">
             <img src="/assets/images/blogLogo.png" width="100" height="100" alt="logo">
           </a>
-          <li class="nav-item navBtn">
-            <a class="btn btn-primary navBtns" href="#" class="btn btn-outline-dark" role="button">Home</a>
-          </li><br>
-          <li class="nav-item navBtn">
-            <a class="btn btn-primary navBtns" href="/dashboard" class="btn btn-outline-dark"
-              role="button">Dashboard</a>
-            <br>
-             <li class="nav-item navBtn">
-            <a class="btn btn-primary navBtns" class="btn btn-outline-dark" id="logout" role="button">Logout</a>
-          </li> <br>   
-        <p>Just checking if this works</p>
-        {{else}}
-        <a class="navbar-brand" href="/">
-          <img src="/assets/images/blogLogo.png" width="100" height="100" alt="logo">
-        </a>
-        <ul class="nav nav-pills nav-fill">
+       
           <li class="nav-item navBtn">
             <a class="btn btn-primary navBtns" href="/" class="btn btn-outline-dark" role="button">Home</a>
           </li><br>
           <li class="nav-item navBtn">
             <a class="btn btn-primary navBtns" href="/dashboard" class="btn btn-outline-dark"
               role="button">Dashboard</a>
-          </li><br>
-          <liv class="nav-item navBtn">
+            <br>
+               {{#if logged_in}}
+          <li class="nav-item navBtn">
+            <a class="btn btn-primary navBtns" class="btn btn-outline-dark" id="logout" role="button">Logout</a>
+          </li> <br>
+          {{else}}
+          <li class="nav-item navBtn">
             <a class="btn btn-primary navBtns" class="btn btn-outline-dark" role="button" href="/login">Login</a>
-            </li> <br> 
-            {{/if}}
-             </ul>
+          </li> <br>
+          {{/if}}
         </ul>
       </nav>
-    </div>
-  </header>
+    </header>
+  </div>
   <main class="container container-fluid mt-5">
     <!-- Render the sub layout -->
     {{{ body }}}

@@ -1,7 +1,8 @@
 const router = require('express').Router();
+const withAuth = require('../../utils/auth');
 const { Post, User, Comment } = require('../../models');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findAll({
       include: [User, Post],
@@ -20,7 +21,21 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
+  try {
+    const commentData = await Post.findByPk(req.params.id);
+    if (!commentData) {
+      res.status(404).json({ message: 'No comment with this ID!' });
+      return;
+    }
+    const post = commentData.get({ plain: true });
+    res.render('comment', { post, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
@@ -35,7 +50,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postedComment = await Post.destroy({
       where: {

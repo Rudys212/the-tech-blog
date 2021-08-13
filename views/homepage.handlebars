@@ -1,9 +1,35 @@
-<div class="fluid-container">
+ <div class="container-full-bg">
+ <div class="jumbotron-fluid jumboPic" >
+ <div class="container-fluid">
+  <h1 class="display-4">Join the Tech Blog Community</h1>
+  <p class="lead">Connect with others in the tech community. Learn, share, and experience tech</p>
+  <hr class="my-4">
+</div>
+ </div>
 
-  {{#each posts as |post|}}
+ {{#each posts as |post|}}
 
   {{> postCards post }}
   {{else}}
   <h6 class="pb-4 has-text-centered is-italic">No active posts</h6>
+  <div class="fluid-container">
+
+    {{#each comments as |comment|}}
+
+    {{> comment comment }}
+    {{else}}
+    <h6 class="pb-4 has-text-centered is-italic">No comments</h6>
+    {{/each}}
+  </div>
   {{/each}}
+
+  <div class="fluid-container">
+
+    {{#each comments as |comment|}}
+
+    {{> comment comment }}
+    {{else}}
+    <h6 class="pb-4 has-text-centered is-italic">No comments</h6>
+    {{/each}}
+  </div>
 </div>

@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const session = require('express-session');
 const { Post, Comment, User } = require('../../models/');
 
 router.post('/', async (req, res) => {
@@ -15,7 +16,6 @@ router.post('/', async (req, res) => {
       req.session.email = userData.email;
       req.session.password = userData.password;
       req.session.logged_in = true;
-
       res.status(200).json(userData);
     });
   } catch (err) {
@@ -44,11 +44,11 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
+      req.session.user_id = userData.id;
       req.session.username = userData.username;
       req.session.email = userData.email;
       req.session.password = userData.password;
       req.session.logged_in = true;
-
       res.json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {

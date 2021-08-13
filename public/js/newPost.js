@@ -39,6 +39,6 @@ document
   .querySelector('.newPostform')
   .addEventListener('submit', newFormHandler);
 
-// document
-//   .querySelector('.activePosts')
-//   .addEventListener('click', delButtonHandler);
+document
+  .querySelector('.activePosts')
+  .addEventListener('click', delButtonHandler);

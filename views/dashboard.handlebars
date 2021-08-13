@@ -1,9 +1,11 @@
 <div class="container-fluid newPost">
   <div>
-    <h2>Welcome, {{ }}</h2>
+
+    <h2>Welcome,{{ username}}!</h2>
   </div>
+
   <div class="row">
-    <div class="col card" id="imageCardSec">
+    <div class="col card" id="imageCardSec"  class="col-4">
       <img src="/assets/images/loginPurple.jpg" class="card-img" alt="laptop" id="loginCardImg">
     </div>
     <div class="col card col-4 .bg-transparent" id="loginFormCard">
@@ -24,23 +26,23 @@
       </div>
     </form>
   </div>
-
-  {{#if post.length}}
+</div>
+ </div>
   <div class="col-md-6 activePosts">
     <h3>Current Posts:</h3>
-    {{#each post as |posts|}}
+    {{#each posts as |post|}}
+    {{>postCards}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/post/{{post.id}}">{{post.username}}</a></h4>
+        <h4><a href="/post/{{posts.id}}">{{posts.username}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{posts_id}}">DELETE</button>
       </div>
     </div>
+
+    {{> postComment}}
     {{/each}}
   </div>
-  {{/if}}
-</div>
-</div>
 </div>
 <script src="/js/newPost.js"></script>
