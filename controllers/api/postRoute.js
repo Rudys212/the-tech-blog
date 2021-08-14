@@ -23,20 +23,6 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/post/:id', withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id);
-    if (!postData) {
-      res.status(404).json({ message: 'Post with this ID!' });
-      return;
-    }
-    const post = postData.get({ plain: true });
-    res.render('postcards', { post, logged_in: req.session.logged_in });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
@@ -44,7 +30,7 @@ router.post('/', withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(postCards);
+    res.status(200).json(newPost);
   } catch (err) {
     res.status(400).json(err);
   }

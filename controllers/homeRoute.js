@@ -22,15 +22,24 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id);
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        User,
+        {
+          model: Comment,
+          include: [User],
+        },
+      ],
+    });
     if (!postData) {
       res.status(404).json({ message: 'Post with this ID!' });
       return;
     }
     const post = postData.get({ plain: true });
-    res.render('postCards', 'dashboard', {
+    console.log(post);
+    res.render('viewPost', {
       post,
       logged_in: req.session.logged_in,
     });
@@ -40,19 +49,23 @@ router.get('/:id', async (req, res) => {
 });
 
 router.get('/login', async (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
-  res.render('login', { logged_in: req.session.logged_in });
+  res.render('login', {
+    logged_in: req.session.logged_in,
+  });
 });
 
 router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
-  res.render('signup', { logged_in: req.session.logged_in });
+  res.render('login', {
+    logged_in: req.session.logged_in,
+  });
 });
 
 module.exports = router;

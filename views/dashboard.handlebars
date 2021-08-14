@@ -1,7 +1,7 @@
 <div class="container-fluid newPost">
   <div>
 
-    <h2>Welcome,{{ username}}!</h2>
+    <h2>Welcome,{{user.post.username}}!</h2>
   </div>
 
   <div class="row">
@@ -37,7 +37,7 @@
         <h4><a href="/post/{{posts.id}}">{{posts.username}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{posts_id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="posts_id">DELETE</button>
       </div>
     </div>
 

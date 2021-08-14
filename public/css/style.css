@@ -85,3 +85,12 @@ div #imageCardSec {
   margin-right: auto;
   margin-left: auto;
 }
+
+#homePostsSec {
+  align-items: center;
+}
+div#homePostsSec {
+  align-content: center;
+  position: relative;
+  left: 100px;
+}
