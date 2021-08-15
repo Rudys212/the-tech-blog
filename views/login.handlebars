@@ -5,18 +5,18 @@
     </div>
     <div class="col card col-4 .bg-transparent" id="loginFormCard">
       <div class="card-body">
-        <h3 class="card-title">Welcome, {{user.username}}</h3>
+        <h3 class="card-title">Welcome</h3>
         <div id="loginFormContainer" class="form-group shadow p-3 mb-5 bg-white rounded bg-light">
                   <h4>Login</h4>
           <form class="form loginForm">
             <div class="form-group">
               <label for="emailLogin"><i class="bi bi-envelope-fill"></i> Email:</label>
-              <input class="form-control" type="email" id="emailLogin" />
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <input class="form-control" type="email" id="emailLogin" autocomplete="on"/>
+              <small id="emailHelp" class="form-text text-muted">Not a user?<a href="#signUpnow"> Sign up below</a></small>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1" id="passwordLabel"><i class="bi bi-lock-fill"></i> Password</label>
-              <input class="form-control" type="password" id="passwordLogin" class="shadow p-3 mb-5 bg-white rounded" />
+              <input class="form-control" type="password" id="passwordLogin" class="shadow p-3 mb-5 bg-white rounded" autocomplete="on"/>
             </div>
             <div class="form-group">
               <button class="btn btn-primary" class="btn btn-outline-dark" type="submit"><i
@@ -27,21 +27,22 @@
         <br>
         <div class="row">
           <div id="signUpContainer" class="form-group shadow p-3 mb-5 bg-white rounded bg-light">
+            <a id="signUpnow"></a>
             <h4>Sign Up</h4>
             <form class="form signupForm">
               <div class="form-group">
                 <label for="usernameSignup"><i class="bi bi-person-badge-fill"></i> Username:</label>
-                <input class="form-input" type="text" id="usernameSignup" />
+                <input class="form-input" type="text" id="usernameSignup" autocomplete="on"/>
                 <small id="usernameHelp" class="form-text text-muted">Enter a Username</small>
               </div>
               <div class="form-group">
                 <label for="emailSignup"><i class="bi bi-envelope-fill"></i> Email:</label>
-                <input class="form-input" type="text" id="emailSignup" />
+                <input class="form-input" type="text" id="emailSignup" autocomplete="on"/>
                 <small id="emailHelp" class="form-text text-muted">Enter an Email Address</small>
               </div>
               <div class="form-group">
                 <label for="password-signup"><i class="bi bi-lock-fill"></i> Password:</label>
-                <input class="form-input" type="password" id="passwordSignup" />
+                <input class="form-input" type="password" id="passwordSignup" autocomplete="on"/>
                 <small id="passwordHelp" class="form-text text-muted">Enter a Password, must be at least 8 characters
                   long. No special characters. </small>
               </div>

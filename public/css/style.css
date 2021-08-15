@@ -94,3 +94,24 @@ div#homePostsSec {
   position: relative;
   left: 100px;
 }
+#dashCardImg {
+  height: 450px;
+  width: 400px;
+  left: 80px;
+  position: relative;
+}
+
+#currentPostTitle {
+  align-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.activePosts {
+  align-items: center;
+}
+.div.activePosts {
+  align-content: center;
+  position: relative;
+  left: 100px;
+}

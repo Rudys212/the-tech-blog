@@ -1,12 +1,12 @@
 <div class="card shadow p-3 col-9 bg-white rounded bg-light" id="postCard">
     <h3 class="card-title header">{{post.title}}</h3>
     <div class="card-body">
-
         <p class="card-text">{{post.post_body}}</p>
         <div class="card-footer text-muted">
             <p>Posted by {{post.user.username}} on {{format_date post.date_created}}</p>
         </div>
     </div>
+    <div id="commentHomePg">
     <h3>Comments:</h3>
     {{#if post.comments}}
     {{>comments}}
@@ -15,11 +15,14 @@
     <div class="card-body">
         <p class="card-text">{{comments.comment_body}}</p>
         <div class="card-footer text-muted">
-            <p>{{user.username}} on {{format_date date_created}}</p>
-           
+            <p>{{user.username}} on {{format_date date_created}}</p>          
         </div>
     </div>
 </div>
+</div>
  {{/each}}
             {{/if}}
+</div>
+<div id="postCommentSec">
+    {{>postComment}}
 </div>
