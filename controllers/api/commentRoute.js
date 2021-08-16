@@ -57,7 +57,7 @@ router.delete('/:id', withAuth, async (req, res) => {
       },
     });
 
-    if (![postedComment]) {
+    if (!postedComment) {
       res.status(404).json({ message: 'No post found with this id!' });
       return;
     }
