@@ -8,15 +8,13 @@ const newComment = async (event) => {
     window.location.toString().split('/').length - 1
   ];
 
-  if (comment_body) {
-    const response = await fetch('/api/comment', {
-      method: 'POST',
-      body: JSON.stringify({ comment_body, post_id }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  }
+  const response = await fetch('/api/comment', {
+    method: 'POST',
+    body: JSON.stringify({ comment_body, post_id }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
   if (response.ok) {
     document.location.replace('/comment');
