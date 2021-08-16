@@ -1,7 +1,7 @@
 {
   "name": "the-tech-blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "------------- The Tech Blog is an application for users who are interested about the world of technology. The application is a way for tech users to post about anything having to do with tech. Users can create posts and can comment on each other's posts as well. Making it a great way to connect with others.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,6 +20,7 @@
     "express-session": "^1.17.1",
     "helper-date": "^1.0.1",
     "mysql2": "^2.2.5",
+    "path": "^0.12.7",
     "seed": "^0.4.4",
     "sequelize": "^6.3.5"
   },
@@ -27,5 +28,13 @@
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "prettier": "^2.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rudys212/the-tech-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rudys212/the-tech-blog/issues"
+  },
+  "homepage": "https://github.com/Rudys212/the-tech-blog#readme"
 }
