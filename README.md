@@ -71,4 +71,4 @@ SOFTWARE.
 ---------------
 - [GitHub Repo](https://github.com/Rudys212/the-tech-blog)
 
-- [Deployed app in Heroku](https://github.com/Rudys212/the-tech-blog)
+- [Deployed app in Heroku](https://boiling-brushlands-19763.herokuapp.com/)
