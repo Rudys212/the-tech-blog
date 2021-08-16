@@ -14,7 +14,6 @@ router.get('/', withAuth, async (req, res) => {
         plain: true,
       })
     );
-    console.log(posts);
     res.render('postCards', {
       posts,
     });

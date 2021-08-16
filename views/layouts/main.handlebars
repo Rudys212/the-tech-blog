@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
   <title>The Tech Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,19 +19,18 @@
   <div class="hero-pic">
     <header id="bkgrdImg">
       <nav class="navContainer">
-        <ul class="nav nav-pills nav-fill">
+        <ul class="nav nav-pills nav-fill navList">
           <!-- Conditionally render login or logout links -->
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand logo" href="/">
             <img src="/assets/images/blogLogo.png" width="100" height="100" alt="logo">
-          </a>
-       
+          </a>     
           <li class="nav-item navBtn">
             <a class="btn btn-primary navBtns" href="/" class="btn btn-outline-dark" role="button">Home</a>
           </li><br>
           <li class="nav-item navBtn">
             <a class="btn btn-primary navBtns" href="/dashboard" class="btn btn-outline-dark"
               role="button">Dashboard</a>
-            <br>
+          </li><br>
                {{#if logged_in}}
           <li class="nav-item navBtn">
             <a class="btn btn-primary navBtns" class="btn btn-outline-dark" id="logout" role="button">Logout</a>
